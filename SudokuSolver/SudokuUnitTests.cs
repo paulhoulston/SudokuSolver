@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 namespace SudokuSolver
@@ -10,8 +11,8 @@ namespace SudokuSolver
             [Test]
             public void Then_the_sudoku_solver_enters_the_correct_value_for_me()
             {
-                var singleGridValue = new Solver().Solve();
-                Assert.AreEqual(1, singleGridValue[0].Value);
+                var singleGridValue = new Solver().Solve(1);
+                Assert.AreEqual(1, singleGridValue.Single().Value);
             }
         }
     }
@@ -20,7 +21,7 @@ namespace SudokuSolver
     {
         public class When_the_grid_is_empty
         {
-            private readonly Solver.Cell[] _grid = new Solver().Solve();
+            private readonly IEnumerable<Solver.Cell> _grid = new Solver().Solve(2);
 
             [Test]
             public void Then_a_non_empty_grid_is_returned()
@@ -54,9 +55,14 @@ namespace SudokuSolver
         }
 
 
-        public Cell[] Solve()
+        public IEnumerable<Cell> Solve(int gridSize)
         {
-            return new[] {new Cell(1, 1, 1)};
+            var grid = new List<Cell>();
+            for (var i = 1; i <= gridSize; i++)
+            {
+                grid.Add(new Cell(1,i,1));
+            }
+            return grid;
         }
     }
 }
