@@ -70,10 +70,9 @@ namespace SudokuSolver
         public IEnumerable<Cell> Solve(int gridSize)
         {
             var grid = new List<Cell>();
-            for (var i = 1; i <= gridSize; i++)
-            {
-                grid.Add(new Cell(i,i,1));
-            }
+            for (var x = 1; x <= gridSize; x++)
+                for (var y = 1; y <= gridSize; y++)
+                    grid.Add(new Cell(x, y, 1));
             return grid;
         }
     }
