@@ -9,9 +9,17 @@ namespace SudokuSolver
             [Test]
             public void Then_the_sudoku_solver_enters_the_correct_value_for_me()
             {
-                int singleGridValue=0;
+                var singleGridValue = new Solver().Solve();
                 Assert.AreEqual(1, singleGridValue);
             }
+        }
+    }
+
+    public class Solver
+    {
+        public int Solve()
+        {
+            return 1;
         }
     }
 }
