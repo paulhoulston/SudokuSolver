@@ -66,7 +66,7 @@ namespace SudokuSolver
             var grid = new List<Cell>();
             for (var i = 1; i <= gridSize; i++)
             {
-                grid.Add(new Cell(1,i,1));
+                grid.Add(new Cell(i,i,1));
             }
             return grid;
         }
