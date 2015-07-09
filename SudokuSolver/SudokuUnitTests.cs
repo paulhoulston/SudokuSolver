@@ -41,6 +41,12 @@ namespace SudokuSolver
             {
                 Assert.AreEqual(2, _grid.Max(cell => cell.X));
             }
+
+            [Test]
+            public void And_the_grid_has_4_cells()
+            {
+                Assert.AreEqual(4, _grid.Count());
+            }
         }
     }
 
