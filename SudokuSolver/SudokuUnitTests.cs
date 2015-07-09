@@ -35,6 +35,12 @@ namespace SudokuSolver
             {
                 Assert.AreEqual(2, _grid.Max(cell => cell.Y));
             }
+
+            [Test]
+            public void And_the_grid_is_2_cells_wide()
+            {
+                Assert.AreEqual(2, _grid.Max(cell => cell.X));
+            }
         }
     }
 
