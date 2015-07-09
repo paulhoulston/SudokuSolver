@@ -15,6 +15,19 @@ namespace SudokuSolver
         }
     }
 
+    public class Given_I_have_a_2_by_2_grid
+    {
+        public class When_the_grid_is_empty
+        {
+            [Test]
+            public void Then_a_non_empty_grid_is_returned()
+            {
+                var gridIsEmpty = true;
+                Assert.False(gridIsEmpty);
+            }
+        }
+    }
+
     public class Solver
     {
         public int Solve()
