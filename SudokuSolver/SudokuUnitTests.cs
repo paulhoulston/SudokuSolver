@@ -20,11 +20,19 @@ namespace SudokuSolver
     {
         public class When_the_grid_is_empty
         {
+            private readonly Solver.Cell[] _grid = new Solver().Solve();
+
             [Test]
             public void Then_a_non_empty_grid_is_returned()
             {
-                var gridIsNotEmpty = new Solver().Solve().All(cell => cell.Value.HasValue);
+                var gridIsNotEmpty = _grid.All(cell => cell.Value.HasValue);
                 Assert.True(gridIsNotEmpty);
+            }
+
+            [Test]
+            public void And_the_grid_is_2_cells_deep()
+            {
+                Assert.AreEqual(2, _grid.Max(cell => cell.Y));
             }
         }
     }
